@@ -2,7 +2,7 @@
 //  bebotApp.swift
 //  bebot
 //
-//  Created by abdul karim on 03/04/26.
+//  Created by najish karim on 03/04/26.
 //
 
 import SwiftUI

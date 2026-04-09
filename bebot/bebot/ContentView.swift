@@ -12,8 +12,7 @@ struct ContentView: View {
     @State private var password = ""
     @State private var showPassword = false
     @State private var loginError = ""
-    
-    @Binding var isLoggedIn: Bool
+    @State private var isLoggedIn = false
    
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -94,11 +93,17 @@ struct ContentView: View {
     }
     
     fileprivate func LoginButton() -> some View {
-        Button("Log In") { login() }
-            .foregroundColor(.white)
-            .frame(maxWidth: 350, minHeight: 50)
-            .background(.black)
-            .cornerRadius(9)
+        Button(action: {
+            isLoggedIn = true
+            print("Login tapped")
+        }) {
+            NavigationLink("", destination: NhomePage())
+            Text("Log In")
+                .foregroundColor(.white)
+                .frame(maxWidth: 350, minHeight: 50)
+                .background(.black)
+                .cornerRadius(9)
+        }
     }
     
     // MARK: Extracted Views
@@ -129,7 +134,7 @@ struct ContentView: View {
     }
 }
 #Preview {
-    ContentView(isLoggedIn: .constant(false))
+    ContentView()
 }
 
 

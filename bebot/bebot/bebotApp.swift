@@ -11,7 +11,9 @@ import SwiftUI
 struct bebotApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(isLoggedIn: .constant(false))
+            NavigationStack {
+                ContentView()
+            }
         }
     }
 }

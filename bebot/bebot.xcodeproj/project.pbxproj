@@ -14,6 +14,7 @@
 		9630A3162F80178D00C28F1D /* bebotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9630A3152F80178D00C28F1D /* bebotTests.swift */; };
 		9630A3202F80178D00C28F1D /* bebotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9630A31F2F80178D00C28F1D /* bebotUITests.swift */; };
 		9630A3222F80178D00C28F1D /* bebotUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9630A3212F80178D00C28F1D /* bebotUITestsLaunchTests.swift */; };
+		9630A3672F88187D00C28F1D /* NhomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9630A3662F88187D00C28F1D /* NhomePage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		9630A31B2F80178D00C28F1D /* bebotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bebotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9630A31F2F80178D00C28F1D /* bebotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bebotUITests.swift; sourceTree = "<group>"; };
 		9630A3212F80178D00C28F1D /* bebotUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bebotUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9630A3662F88187D00C28F1D /* NhomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NhomePage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				9630A3042F80178C00C28F1D /* bebotApp.swift */,
 				9630A3062F80178C00C28F1D /* ContentView.swift */,
+				9630A3662F88187D00C28F1D /* NhomePage.swift */,
 				9630A3082F80178D00C28F1D /* Assets.xcassets */,
 				9630A30A2F80178D00C28F1D /* Preview Content */,
 			);
@@ -259,6 +262,7 @@
 			files = (
 				9630A3072F80178C00C28F1D /* ContentView.swift in Sources */,
 				9630A3052F80178C00C28F1D /* bebotApp.swift in Sources */,
+				9630A3672F88187D00C28F1D /* NhomePage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

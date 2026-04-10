@@ -15,7 +15,6 @@ struct NhomePage: View {
     @State private var activitySelected = false
     @State private var profileSelected = false
     
-    
     var body: some View {
         VStack {
             
@@ -62,147 +61,32 @@ struct NhomePage: View {
                     
                     HStack {
                         
-                        VStack(alignment: .leading, spacing: 8) {
-                            
-                            Image("placeholder")
-                                .resizable()
-                                .frame(width: 320, height: 250)
-                            
-                            Text("$440,000")
-                                .font(.title)
-                                .fontWeight(.medium)
-                            
-                            Text("123 Main St, Tulsa, OK 74136")
-                                .foregroundColor(.gray)
-                                .font(.callout)
-                            
-                        }
-                        VStack(alignment: .leading, spacing: 8) {
-                            
-                            Image("placeholder")
-                                .resizable()
-                                .frame(width: 320, height: 250)
-                            
-                            Text("$420,000")
-                                .font(.title)
-                                .fontWeight(.medium)
-                            
-                            Text("101 Willow St, Austin, TX 78701")
-                                .foregroundColor(.gray)
-                                .font(.callout)
-                            
-                        }
+                        mainListingItem(imageName: "placeholder", price: "$50000", title: "123 Avenu parkstreet")
+                        mainListingItem(imageName: "placeholder", price: "$40000", title: "56 park street")
                     }
                 }
                 .padding()
                 HStack {
-                    ZStack(alignment: .bottomLeading) {
-                        
-                        Image("placeholder")
-                            .resizable()
-                            .frame(width: 170, height: 120)
-                        
-                        Text("New Listing")
-                            .font(.title3)
-                            .foregroundColor(.black)
-                            .padding(.vertical, 40)
-                            .padding(.horizontal, 30)
-                    }
-                    ZStack(alignment: .bottomLeading) {
-                        
-                        Image("placeholder")
-                            .resizable()
-                            .frame(width: 170, height: 120)
-                        
-                        Text("New Project")
-                            .font(.title3)
-                            .foregroundColor(.black)
-                            .padding(.vertical, 40)
-                            .padding(.horizontal, 30)
-                    }
+                    listingView(imageName: "placeholder", text: "New Listing")
+                    listingView(imageName: "placeholder", text: "New Project")
                 }
                 HStack {
-                    ZStack(alignment: .bottomLeading) {
-                        
-                        Image("placeholder")
-                            .resizable()
-                            .frame(width: 170, height: 120)
-                        
-                        Text("Open House")
-                            .font(.title3)
-                            .foregroundColor(.black)
-                            .padding(.vertical, 40)
-                            .padding(.horizontal, 30)
-                    }
-                    ZStack(alignment: .bottomLeading) {
-                        
-                        Image("placeholder")
-                            .resizable()
-                            .frame(width: 170, height: 120)
-                        
-                        Text("Price Reduced")
-                            .font(.title3)
-                            .foregroundColor(.black)
-                            .padding(.vertical, 40)
-                            .padding(.horizontal, 30)
-                    }
+                    listingView(imageName: "placeholder", text: "Open House")
+                    listingView(imageName: "placeholder", text: "Price Reduced")
+                   
+                }
+                HStack {
+                    listingView(imageName: "placeholder", text: "Open House")
+                    listingView(imageName: "placeholder", text: "Price Reduced")
+                   
                 }
             }
             HStack(spacing : 60) {
-                Button {
-                    homeSelected.toggle()
-                } label: {
-                    
-                    VStack(spacing: 10) {
-                        Image(systemName: "house")
-                            .font(.title2)
-                        
-                        Text("Home")
-                            .font(.caption)
-                    }
-                    .foregroundColor(homeSelected ? .black : .gray)
-                }
-                Button {
-                    inboxSelected.toggle()
-                } label: {
-                    
-                    VStack(spacing: 10) {
-                        
-                        Image(systemName: "envelope")
-                            .font(.title2)
-                        
-                        Text("Inbox")
-                            .font(.caption)
-                    }
-                    .foregroundColor(inboxSelected ? .black : .gray)
-                }
-                Button {
-                    activitySelected.toggle()
-                } label: {
-                    
-                    VStack(spacing: 10) {
-                        
-                        Image(systemName: "list.bullet.clipboard")
-                            .font(.title2)
-                        
-                        Text("Activity")
-                            .font(.caption)
-                    }
-                    .foregroundColor(activitySelected ? .black : .gray)
-                }
-                Button {
-                    profileSelected.toggle()
-                } label: {
-                    
-                    VStack(spacing: 10) {
-                        Image(systemName: "person.crop.circle")
-                            .font(.title2)
-                        
-                        Text("Profile")
-                            .font(.caption)
-                    }
-                    .foregroundColor(profileSelected ? .black : .gray)
-                }
+                buttonView(systemImage: "house", text: "Home")
+                buttonView(systemImage: "envelope", text: "Inbox")
+                buttonView(systemImage: "list.bullet.clipboard", text: "Activity")
+                buttonView(systemImage: "person.crop.circle", text: "Profile")
+               
             }
             
         }
@@ -229,6 +113,52 @@ struct NhomePage: View {
         }
     }
     
+    fileprivate func mainListingItem(imageName: String, price:String, title:String) -> VStack<TupleView<(some View, Text, Text)>> {
+        return VStack(alignment: .leading, spacing: 8) {
+            
+            Image(imageName)
+                .resizable()
+                .frame(width: 320, height: 250)
+            
+            Text(price)
+                .font(.title)
+                .fontWeight(.medium)
+            
+            Text(title)
+                .foregroundColor(.gray)
+                .font(.callout)
+            
+        }
+    }
+    fileprivate func listingView(imageName: String, text: String) -> ZStack<TupleView<(some View, some View)>> {
+        return ZStack(alignment: .bottomLeading) {
+            
+            Image(imageName)
+                .resizable()
+                .frame(width: 170, height: 120)
+            
+            Text(text)
+                .font(.title3)
+                .foregroundColor(.black)
+                .padding(.vertical, 40)
+                .padding(.horizontal, 30)
+        }
+    }
+    fileprivate func buttonView(systemImage: String, text: String) -> Button<some View> {
+        return Button {
+            homeSelected.toggle()
+        } label: {
+            
+            VStack(spacing: 10) {
+                Image(systemName: systemImage)
+                    .font(.title2)
+                
+                Text(text)
+                    .font(.caption)
+            }
+            .foregroundColor(homeSelected ? .black : .gray)
+        }
+    }
 }
 
 

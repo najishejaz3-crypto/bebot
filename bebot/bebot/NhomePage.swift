@@ -20,32 +20,7 @@ struct NhomePage: View {
             
             ScrollView {
                 
-                HStack {
-                    
-                    ZStack(alignment: .leading) {
-                        
-                        Image(systemName: "magnifyingglass")
-                            .foregroundColor(.gray)
-                            .padding(.leading, 10)
-                        
-                        TextField("Search", text: $searchButton)
-                            .padding(.leading, 35)
-                            .foregroundColor(.gray)
-                    }
-                    .padding(.horizontal, 12)
-                    .frame(width: 300, height: 55)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 30)
-                            .stroke(Color.gray, lineWidth: 0.5)
-                    )
-                    Image(systemName: "slider.horizontal.2.square")
-                        .font(.largeTitle)
-                        .frame(width: 60, height: 60)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 30)
-                                .stroke(Color.gray, lineWidth: 0.5)
-                        )
-                }
+                headerView()
                 ScrollView(.horizontal, showsIndicators: false) {
                     
                     HStack {
@@ -159,6 +134,36 @@ struct NhomePage: View {
             .foregroundColor(homeSelected ? .black : .gray)
         }
     }
+    
+    fileprivate func headerView() -> HStack<TupleView<(some View, some View)>> {
+        return HStack {
+            
+            ZStack(alignment: .leading) {
+                
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(.gray)
+                    .padding(.leading, 10)
+                
+                TextField("Search", text: $searchButton)
+                    .padding(.leading, 35)
+                    .foregroundColor(.gray)
+            }
+            .padding(.horizontal, 12)
+            .frame(width: 300, height: 55)
+            .overlay(
+                RoundedRectangle(cornerRadius: 30)
+                    .stroke(Color.gray, lineWidth: 0.5)
+            )
+            Image(systemName: "slider.horizontal.2.square")
+                .font(.largeTitle)
+                .frame(width: 60, height: 60)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 30)
+                        .stroke(Color.gray, lineWidth: 0.5)
+                )
+        }
+    }
+    
 }
 
 
